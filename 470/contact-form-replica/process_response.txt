@@ -1,0 +1,20 @@
+Content-Type: text/html; charset=utf-8
+
+
+<html>
+   <head></head>
+   <body>
+      <div style="background-color: #FEF; padding: 2rem; font-family: sans-serif;">
+         Your SFU userid: %s<br>
+         Your email subject: %s<br><br>
+         Your email body: %s<br><br>
+         Send reply to:<br>%s<br><br>
+         <p>
+         	<a href="mailto:470cmpt@gmail.com?cc=%s@sfu.ca&amp;Subject=CMPT 470: %s&amp;body=%s&amp;reply-to=%s" target="_top">
+         		Send email to <span class="code">cmpt-470-help</span>
+         	</a>
+         </p>
+         <p><a href="/contact.html">Cancel email and return to contact page</a></p>
+      </div>
+   </body>
+</html>

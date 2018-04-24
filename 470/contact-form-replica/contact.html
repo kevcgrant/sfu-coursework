@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="contact.css">
+	<title>Contact us</title> 
+</head>
+<body>
+
+<div id="content">
+	<div id="header">
+		<h1><abbr title="Computing Science">CMPT</abbr> 470 (E1 Spring 2018)</h1>
+		<h1>Web-based information systems</h1>
+	</div>
+
+	<div id="main">
+
+		<form name="myform" action="cgi-bin/process.cgi" method="POST">
+		<input type="hidden"  name="check_submit" value="1" />
+
+		<label for="userid">Your SFU userid:</label>
+		<input type="text" autofocus required name="userid" maxlength = "7" /><br />
+
+		<label for="subject">Email subject (do not include CMPT 470):</label>
+		<input type="text" name="subject" required value=""/><br />
+
+		<label for="body">Your email body:</label><br />
+		<textarea name="body" rows="10" cols="60"></textarea><br />
+
+		<label for="email">Which email address could we use to reach you faster?</label>
+		<input type="email" name="email" value="@gmail.com"/>
+
+
+		<input class="button" type="submit" value="Submit">
+
+		<input class="button2" type="reset" value="Reset">
+
+		</form>
+	</div>
+
+</div>
+</body>
+</html>

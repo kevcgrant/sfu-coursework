@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{%- for category, message in get_flashed_messages(with_categories = true) %}
+	<div class = "alert alert-success">
+		{{ message }}
+	</div>
+{%- endfor %}
+
+<section class="main-section" id="service">
+	<div class="container">
+		<h2 class="wow fadeInDown delay-01s">Debugger Example</h2>
+	</div>
+</section>
+
+<div class="full-width animated fadeInUp delay-01s">
+  <a class="button" href="{{ url_for('test_debugger') }}">Execute bad code</a>
+  <p class="warning">Warning: clicking this button may result in an internal server error!</p>
+</div>
+
+{% endblock %}

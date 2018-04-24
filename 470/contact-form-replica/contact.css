@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+h1{
+	font-family: "Verdana", sans-serif;
+	font-style: oblique;
+}
+
+form {
+  overflow: hidden;
+}
+
+label {
+  float: left;
+  width: 60%;
+  padding-right: 24px;
+}
+
+input, textarea, button {
+  float: left;
+  width: 99%;
+  margin-top: 1%;
+}
+
+button {
+  float: left;
+  width: 20%;
+  margin-top: 2%;
+}
+
+
+input[type=email]:focus, input[type=text]:focus, textarea:focus {
+  background-color: #ede;
+}
+
+.button {
+  float: left;
+  width: 50%;
+}
+
+.button2 {
+  float: right;
+  width: 10%;
+}
+
+button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}

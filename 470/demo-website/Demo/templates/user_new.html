@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{%- for category, message in get_flashed_messages(with_categories = true) %}
+	<div class = "alert alert-danger">
+		{{ message }}
+	</div>
+{%- endfor %}
+
+<section class="main-section" id="service">
+   <div class="container wow fadeInUp delay-01s">
+   	<h2>Create User </h2>
+   	
+		<form action="{{ request.path }}" method="post">
+			<label for="username">Username</label><br>
+			<input type="text" name="username" class="form-control input-text" placeholder="Username"><br>
+			<label for="email">Email</label><br>
+			<input type="text" name="email" class="form-control input-text" placeholder="Email"><br>
+			<input class="button" type="submit" value="Submit" />
+		</form>
+
+	</div>
+</section>
+
+<section class="main-section alabaster" id="service">
+   <div class="container wow fadeInUp delay-02s">
+		<pre class="code-header">{{ route.file }}</pre>
+		<pre><code class="language-python">{{ route.code }}</code></pre>
+
+		<pre class="code-header">{{ template.file }}</pre>
+		<pre><code class="language-django">{{ template.code }}</code></pre>
+	</div>
+</section>
+
+{% endblock %}

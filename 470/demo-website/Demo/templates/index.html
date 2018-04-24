@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<section class="main-section" id="service">
+    <!--main-section-start-->
+    <div class="container">
+        <h2>About</h2>
+        <h6>Flask is a free Python web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</h6>
+        <div class="row">
+            <div class="col-lg-4 col-sm-6 wow fadeInLeft delay-05s">
+                <div class="service-list">
+                    <div class="service-list-col1">
+                        <i class="fa-magic"></i>
+                    </div>
+                    <div class="service-list-col2">
+                        <h3>Easy to setup</h3>
+                        <p>Run a basic application with only a few lines of code.</p>
+                    </div>
+                </div>
+                <div class="service-list">
+                    <div class="service-list-col1">
+                        <i class="fa-code"></i>
+                    </div>
+                    <div class="service-list-col2">
+                        <h3>Uses <a href="http://jinja.pocoo.org/docs/2.10/">Jinja2</a> templating</h3>
+                        <p>Inherit layouts, inject variables, iterate over collections and more all within your HTML.</p>
+                    </div>
+                </div>
+                <div class="service-list">
+                    <div class="service-list-col1">
+                        <i class="fa-check-circle"></i>
+                    </div>
+                    <div class="service-list-col2">
+                        <h3>100% WSGI 1.0 compliant</h3>
+                        <p>Adheres to the standard interface between web servers and Python web applications.</p>
+                    </div>
+                </div>
+                <div class="service-list">
+                    <div class="service-list-col1">
+                        <i class="fa-book"></i>
+                    </div>
+                    <div class="service-list-col2">
+                        <h3>Extensively documented</h3>
+                        <p>You'll always find what you're looking for.</p>
+                    </div>
+                </div>
+            </div>
+            <figure class="col-lg-8 col-sm-6  text-right wow fadeInUp delay-02s">
+                <img src="{{ url_for('static', filename='img/macbook-pro.png') }}" alt="">
+            </figure>
+
+        </div>
+    </div>
+</section>
+<!--main-section-end-->
+
+
+
+<section class="main-section alabaster">
+    <!--main-section alabaster-start-->
+    <div class="container">
+        <div class="row">
+            <figure class="col-lg-5 col-sm-4 wow fadeInLeft">
+                <img src="{{ url_for('static', filename='img/server.png') }}" alt="">
+            </figure>
+            <div class="col-lg-7 col-sm-8 featured-work">
+                <h2>Connect to any database</h2>
+                <P class="padding-b">Flask provides no native database support, which allows you to choose whatever database works best for your application. There are numerous Flask Extensions available for easily connecting to your favourite DBMS.</P>
+                <div class="featured-box">
+                    <div class="featured-box-col1 wow fadeInRight delay-02s">
+                        <i class="fa-table"></i>
+                    </div>
+                    <div class="featured-box-col2 wow fadeInRight delay-02s">
+                        <h3>Relational</h3>
+                        <p>Connect to any SQL database using <a href="http://flask-sqlalchemy.pocoo.org/2.3/">SQL Alchemy</a>. </p>
+                    </div>
+                </div>
+                <div class="featured-box">
+                    <div class="featured-box-col1 wow fadeInRight delay-04s">
+                        <i class="fa-leaf"></i>
+                    </div>
+                    <div class="featured-box-col2 wow fadeInRight delay-04s">
+                        <h3>Document-based</h3>
+                        <p>Connect to your favourite document-based database, such as MongoDB or CouchDB, using <a href="https://pypi.python.org/pypi/Flask-PyMongo">Flask PyMongo</a> or <a href="http://pypi.python.org/pypi/Flask-CouchDB"> Flask CouchDB</a>. </p>
+                    </div>
+                </div>
+                <div class="featured-box">
+                    <div class="featured-box-col1 wow fadeInRight delay-06s">
+                        <i class="fa-database"></i>
+                    </div>
+                    <div class="featured-box-col2 wow fadeInRight delay-06s">
+                        <h3>Or anything else</h3>
+                        <p>DynamoDB, Cassandra, Cosmos, whatever you like. </p>
+                    </div>
+                </div>
+                <a class="Learn-More" href="#">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--main-section alabaster-end-->
+
+{% endblock %}

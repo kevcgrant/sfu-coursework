@@ -1,0 +1,226 @@
+Assignment 4 - Overview
+kcgrant / 301192898
+
+Client and Server tested with Server on summer, and Client on november
+
+=========================
+ENCRYPTION SCHEME DESIGN
+=========================
+
+The classes that define the encrpytion scheme are EncryptionScheme, 
+SubstitutionScheme, TranspositionScheme, and KeyDeliverer.
+
+
+TranspositionScheme:
+----------------------
+
+The keys for the transposition encryption are represented as int arrays. The key 
+specifies the order to transpose columns of the original matrix into rows, and
+the number of elements in the key is the number of columns that will be in the 
+original matrix. Extra trailing elements in the matrix are filled with '~'.
+For example,
+
+Using the key {4, 5, 1, 2, 0, 3}, the message "hello, world!" is arranged into
+the matrix:
+
+    h e l l o ,
+      w o r l d
+    ! ~ ~ ~ ~ ~
+
+and then transposed with column 4 as row 0, column 5 as row 1, column 1 as row 2, etc:
+
+    o l ~
+    , d ~
+    e w ~
+    l o ~
+    h   !
+    l r ~
+
+The matrix is then read from left to right and top to bottom to create the cipher:
+
+    ol~,d~ew~lo~h !lr~
+
+Decryption is realized by reversing the previous steps using the same key.
+
+
+SubstitutionScheme:
+---------------------
+
+The keys for the substitution scheme are represented as strings containing the 
+characters a-z, A-Z, 0-9, and the symbols !@#$%^&*()_-+=<>,.?/{}[]`|:;'" 
+
+Each symbol appears only once in the string. Each key is a different permutation of these symbols.
+
+To encrypt text, each character 'c' in the text is substituted with the character
+at index [decimalValue(c) - 32] of the key.
+
+For example, if the character is D, which has decimal value 68, then the index
+(68 - 32) = 36 is used in for reading the key. If the character at index 36 of 
+the key is 't', then the 'D' is substituted with 't'.
+
+Decryption is realized by reversing the encryption steps.
+
+
+EncryptionScheme:
+---------------------
+
+EncryptionScheme is the class used my the client and server to realize encryption. 
+It contains 10 different substitution keys and 10 different transposition keys. 
+
+When supplied with a private key, it calculates (privateKey mod 10) to determine 
+what substitution key and what transposition key to use.
+
+To encrypt plaintext, it first uses substitution, and then uses transposition and 
+returns the cipher.
+
+To decrypt a cipher, it first decrypts using transposition and then decrypts with substitution (the reverse process).
+
+
+KeyDeliverer:
+--------------------
+
+KeyDeliverer is an implementation of the Diffie-Hellman algorithm for delivering 
+a secret key. It is called by both the client and server after they established
+communication, before the message is sent.
+
+
+
+========================================
+PROGRAMS REALIZING SECURE COMMUNICATION
+========================================
+
+
+EncryptedServer:
+--------------------
+
+EncryptedServer establishes a connection with EncryptedClient, then uses 
+KeyDeliverer to calculate a secret key with EncryptedClient, then uses
+EncryptionScheme to decrypt the encrypted message received from the client.
+
+
+EncryptedClient:
+--------------------
+
+EncryptedClient establishes a connection with EncryptedServer, then uses
+KeyDeliverer to calculate a secret key with EncryptedServer, then uses
+EncryptionScheme to encrypt a message to send to the server.
+
+
+
+=============
+DATA SAMPLES
+=============
+
+
+Running the client on november and the server on summer:
+
+    $ java encrypted.EncryptedClient summer
+    Connecting to summer:12323
+    Connected to summer/192.168.0.13:12323
+    Please enter a message: 
+    this is a test!!
+
+Here, the client establishes a connection with summer, then encrypts the message
+"this is a test!!" and sends it to the server.
+
+    $ java encrypted.EncryptedServer 
+    192.168.0.13 Listening on port 12323...
+    Accepted connection from /192.168.0.11:41626
+
+    Received encrypted message:
+     >4};8}8~4|}^>4c8
+
+    Decrypted:
+    this is a test!!
+
+This shows the server connecting with the client and receiving the encrypted
+message ">4};8}8~4|}^>4c8". It then decrypts the message and prints it.
+
+
+
+The following is a packet capture of the communication:
+
+id 51792 shows the sharing of the two public primes, 2749 and 2309.
+
+id 20603 shows the server sharing its calculated public number, 774, with the client.
+
+id 51794 shows the client sharing its calculated public number, 91, with the server.
+
+id 51795 shows the client sending the server the encrypted message, >4};8}8~4|}^>4c8
+
+
+$ sudo tcpdump -nnvvXSs 1514 -i eth0 port 12323
+
+21:18:32.228945 IP (tos 0x0, ttl 64, id 51790, offset 0, flags [DF], proto TCP (6), length 60) 192.168.0.11.46013 > 192.168.0.13.12323: S, cksum 0xba59 (correct), 2508388741:2508388741(0) win 5840 <mss 1460,sackOK,timestamp 1320891339 0,nop,wscale 5>
+	0x0000:  4500 003c ca4e 4000 4006 ef04 c0a8 000b  E..<.N@.@.......
+	0x0010:  c0a8 000d b3bd 3023 9582 f985 0000 0000  ......0#........
+	0x0020:  a002 16d0 ba59 0000 0204 05b4 0402 080a  .....Y..........
+	0x0030:  4ebb 33cb 0000 0000 0103 0305            N.3.........
+21:18:32.229113 IP (tos 0x0, ttl 64, id 0, offset 0, flags [DF], proto TCP (6), length 60) 192.168.0.13.12323 > 192.168.0.11.46013: S, cksum 0xa003 (correct), 725100667:725100667(0) ack 2508388742 win 5792 <mss 1460,sackOK,timestamp 1320908806 1320891339,nop,wscale 5>
+	0x0000:  4500 003c 0000 4000 4006 b953 c0a8 000d  E..<..@.@..S....
+	0x0010:  c0a8 000b 3023 b3bd 2b38 287b 9582 f986  ....0#..+8({....
+	0x0020:  a012 16a0 a003 0000 0204 05b4 0402 080a  ................
+	0x0030:  4ebb 7806 4ebb 33cb 0103 0305            N.x.N.3.....
+21:18:32.229063 IP (tos 0x0, ttl 64, id 51791, offset 0, flags [DF], proto TCP (6), length 52) 192.168.0.11.46013 > 192.168.0.13.12323: ., cksum 0xe4b6 (correct), 2508388742:2508388742(0) ack 725100668 win 183 <nop,nop,timestamp 1320891339 1320908806>
+	0x0000:  4500 0034 ca4f 4000 4006 ef0b c0a8 000b  E..4.O@.@.......
+	0x0010:  c0a8 000d b3bd 3023 9582 f986 2b38 287c  ......0#....+8(|
+	0x0020:  8010 00b7 e4b6 0000 0101 080a 4ebb 33cb  ............N.3.
+	0x0030:  4ebb 7806                                N.x.
+21:18:32.232461 IP (tos 0x0, ttl 64, id 51792, offset 0, flags [DF], proto TCP (6), length 63) 192.168.0.11.46013 > 192.168.0.13.12323: P, cksum 0xf1c6 (correct), 2508388742:2508388753(11) ack 725100668 win 183 <nop,nop,timestamp 1320891340 1320908806>
+	0x0000:  4500 003f ca50 4000 4006 eeff c0a8 000b  E..?.P@.@.......
+	0x0010:  c0a8 000d b3bd 3023 9582 f986 2b38 287c  ......0#....+8(|
+	0x0020:  8018 00b7 f1c6 0000 0101 080a 4ebb 33cc  ............N.3.
+	0x0030:  4ebb 7806 0009 3237 3439 2032 3330 39    N.x...2749.2309
+21:18:32.232483 IP (tos 0x0, ttl 64, id 20602, offset 0, flags [DF], proto TCP (6), length 52) 192.168.0.13.12323 > 192.168.0.11.46013: ., cksum 0xe4ab (correct), 725100668:725100668(0) ack 2508388753 win 181 <nop,nop,timestamp 1320908807 1320891340>
+	0x0000:  4500 0034 507a 4000 4006 68e1 c0a8 000d  E..4Pz@.@.h.....
+	0x0010:  c0a8 000b 3023 b3bd 2b38 287c 9582 f991  ....0#..+8(|....
+	0x0020:  8010 00b5 e4ab 0000 0101 080a 4ebb 7807  ............N.x.
+	0x0030:  4ebb 33cc                                N.3.
+21:18:32.252936 IP (tos 0x0, ttl 64, id 20603, offset 0, flags [DF], proto TCP (6), length 57) 192.168.0.13.12323 > 192.168.0.11.46013: P, cksum 0x8194 (incorrect (-> 0x795f), 725100668:725100673(5) ack 2508388753 win 181 <nop,nop,timestamp 1320908812 1320891340>
+	0x0000:  4500 0039 507b 4000 4006 68db c0a8 000d  E..9P{@.@.h.....
+	0x0010:  c0a8 000b 3023 b3bd 2b38 287c 9582 f991  ....0#..+8(|....
+	0x0020:  8018 00b5 8194 0000 0101 080a 4ebb 780c  ............N.x.
+	0x0030:  4ebb 33cc 0003 3737 34                   N.3...774
+21:18:32.253176 IP (tos 0x0, ttl 64, id 51793, offset 0, flags [DF], proto TCP (6), length 52) 192.168.0.11.46013 > 192.168.0.13.12323: ., cksum 0xe49a (correct), 2508388753:2508388753(0) ack 725100673 win 183 <nop,nop,timestamp 1320891345 1320908812>
+	0x0000:  4500 0034 ca51 4000 4006 ef09 c0a8 000b  E..4.Q@.@.......
+	0x0010:  c0a8 000d b3bd 3023 9582 f991 2b38 2881  ......0#....+8(.
+	0x0020:  8010 00b7 e49a 0000 0101 080a 4ebb 33d1  ............N.3.
+	0x0030:  4ebb 780c                                N.x.
+21:18:32.284720 IP (tos 0x0, ttl 64, id 51794, offset 0, flags [DF], proto TCP (6), length 56) 192.168.0.11.46013 > 192.168.0.13.12323: P, cksum 0xab53 (correct), 2508388753:2508388757(4) ack 725100673 win 183 <nop,nop,timestamp 1320891353 1320908812>
+	0x0000:  4500 0038 ca52 4000 4006 ef04 c0a8 000b  E..8.R@.@.......
+	0x0010:  c0a8 000d b3bd 3023 9582 f991 2b38 2881  ......0#....+8(.
+	0x0020:  8018 00b7 ab53 0000 0101 080a 4ebb 33d9  .....S......N.3.
+	0x0030:  4ebb 780c 0002 3931                      N.x...91
+21:18:32.321509 IP (tos 0x0, ttl 64, id 20604, offset 0, flags [DF], proto TCP (6), length 52) 192.168.0.13.12323 > 192.168.0.11.46013: ., cksum 0xe47e (correct), 725100673:725100673(0) ack 2508388757 win 181 <nop,nop,timestamp 1320908830 1320891353>
+	0x0000:  4500 0034 507c 4000 4006 68df c0a8 000d  E..4P|@.@.h.....
+	0x0010:  c0a8 000b 3023 b3bd 2b38 2881 9582 f995  ....0#..+8(.....
+	0x0020:  8010 00b5 e47e 0000 0101 080a 4ebb 781e  .....~......N.x.
+	0x0030:  4ebb 33d9                                N.3.
+21:18:38.353116 IP (tos 0x0, ttl 64, id 51795, offset 0, flags [DF], proto TCP (6), length 70) 192.168.0.11.46013 > 192.168.0.13.12323: P, cksum 0x5eb3 (correct), 2508388757:2508388775(18) ack 725100673 win 183 <nop,nop,timestamp 1320892870 1320908830>
+	0x0000:  4500 0046 ca53 4000 4006 eef5 c0a8 000b  E..F.S@.@.......
+	0x0010:  c0a8 000d b3bd 3023 9582 f995 2b38 2881  ......0#....+8(.
+	0x0020:  8018 00b7 5eb3 0000 0101 080a 4ebb 39c6  ....^.......N.9.
+	0x0030:  4ebb 781e 0010 3e34 7d3b 387d 387e 347c  N.x...>4};8}8~4|
+	0x0040:  7d5e 3e34 6338                           }^>4c8
+21:18:38.353117 IP (tos 0x0, ttl 64, id 51796, offset 0, flags [DF], proto TCP (6), length 52) 192.168.0.11.46013 > 192.168.0.13.12323: F, cksum 0xde7c (correct), 2508388775:2508388775(0) ack 725100673 win 183 <nop,nop,timestamp 1320892870 1320908830>
+	0x0000:  4500 0034 ca54 4000 4006 ef06 c0a8 000b  E..4.T@.@.......
+	0x0010:  c0a8 000d b3bd 3023 9582 f9a7 2b38 2881  ......0#....+8(.
+	0x0020:  8011 00b7 de7c 0000 0101 080a 4ebb 39c6  .....|......N.9.
+	0x0030:  4ebb 781e                                N.x.
+21:18:38.353263 IP (tos 0x0, ttl 64, id 20605, offset 0, flags [DF], proto TCP (6), length 52) 192.168.0.13.12323 > 192.168.0.11.46013: ., cksum 0xd89c (correct), 725100673:725100673(0) ack 2508388775 win 181 <nop,nop,timestamp 1320910337 1320892870>
+	0x0000:  4500 0034 507d 4000 4006 68de c0a8 000d  E..4P}@.@.h.....
+	0x0010:  c0a8 000b 3023 b3bd 2b38 2881 9582 f9a7  ....0#..+8(.....
+	0x0020:  8010 00b5 d89c 0000 0101 080a 4ebb 7e01  ............N.~.
+	0x0030:  4ebb 39c6                                N.9.
+21:18:38.356055 IP (tos 0x0, ttl 64, id 20606, offset 0, flags [DF], proto TCP (6), length 52) 192.168.0.13.12323 > 192.168.0.11.46013: F, cksum 0xd899 (correct), 725100673:725100673(0) ack 2508388776 win 181 <nop,nop,timestamp 1320910338 1320892870>
+	0x0000:  4500 0034 507e 4000 4006 68dd c0a8 000d  E..4P~@.@.h.....
+	0x0010:  c0a8 000b 3023 b3bd 2b38 2881 9582 f9a8  ....0#..+8(.....
+	0x0020:  8011 00b5 d899 0000 0101 080a 4ebb 7e02  ............N.~.
+	0x0030:  4ebb 39c6                                N.9.
+21:18:38.356190 IP (tos 0x0, ttl 64, id 51797, offset 0, flags [DF], proto TCP (6), length 52) 192.168.0.11.46013 > 192.168.0.13.12323: ., cksum 0xd896 (correct), 2508388776:2508388776(0) ack 725100674 win 183 <nop,nop,timestamp 1320892871 1320910338>
+	0x0000:  4500 0034 ca55 4000 4006 ef05 c0a8 000b  E..4.U@.@.......
+	0x0010:  c0a8 000d b3bd 3023 9582 f9a8 2b38 2882  ......0#....+8(.
+	0x0020:  8010 00b7 d896 0000 0101 080a 4ebb 39c7  ............N.9.
+	0x0030:  4ebb 7e02                                N.~.
+
+

@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+   <div class="full-width">
+      <a class="button animated fadeInUp delay-01s" href="{{ url_for('new') }}">Create User</a>
+   </div>
+
+{%- for message in get_flashed_messages() %}
+   <div class = "alert alert-success">
+      {{ message }}
+   </div>
+{%- endfor %}
+
+<section class="main-section" id="service">
+   <div class="container">
+     <h2 class="wow fadeInDown delay-01s">Database Setup</h2>
+      <div class="wow fadeInUp delay-01s">
+         <pre class="code-header">{{ database_init.file }}</pre>
+         <pre><code class="language-python">{{ database_init.code }}</code></pre>
+       </div>
+       <div class="wow fadeInUp delay-02s">
+         <pre class="code-header">{{ user_model.file }}</pre>
+         <pre><code class="language-python">{{ user_model.code }}</code></pre>
+      </div>
+      <div class="wow fadeInUp delay-03s">
+         <pre class="code-header">{{ route_block.file }}</pre>
+         <pre><code class="language-python">{{ route_block.code }}</code></pre>
+      </div>
+   </div>
+</section>
+
+<section class="main-section alabaster" id="service">
+   <div class="container">
+      <h2 class="wow fadeInDown delay-01s">SQL Table</h2>
+      <div class="wow fadeInUp delay-01s">
+         <pre class="code-header">{{ sql_table.file }}</pre>
+         <pre><code class="language-django">{{ sql_table.code }}</code></pre>
+      </div>
+      <table class="wow fadeInUp delay-02s">
+         <thead>
+            <tr>
+               <th>Name</th>
+               <th>Email</th>
+               <th>ID</th>
+            </tr>
+         </thead>
+         
+         <tbody>
+            {% for user in users %}
+               <tr>
+                  <td>{{ user.username }}</td>
+                  <td>{{ user.email }}</td>
+                  <td>{{ user.id }}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+
+      </table>
+   </div>
+</section>
+
+<section class="main-section" id="service">
+   <div class="container">
+      <h2 class="wow fadeInDown delay-01s">MongoDB Documents</h2>
+
+      <div class="wow fadeInUp delay-01s">
+         <pre class="code-header">{{ mongo_list.file }}</pre>
+         <pre><code class="language-django">{{ mongo_list.code }}</code></pre>
+      </div>
+      <ul class="wow fadeInUp delay-02s">
+         {% for user in mongoUsers %}
+            <li><pre><code class="language-javascript">{{ user }}</code></pre></li>
+         {% endfor %}
+      </ul>
+
+   </div>
+</section>
+
+
+{% endblock %}

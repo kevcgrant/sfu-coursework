@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{%- for category, message in get_flashed_messages(with_categories = true) %}
+	<div class = "alert alert-success">
+		{{ message }}
+	</div>
+{%- endfor %}
+
+<section class="main-section">
+   <div class="container wow fadeInUp delay-01s">
+   	<h2>Session</h2>
+   </div>
+</section>
+
+<section class="full-width">
+   <div class="container wow fadeInUp delay-01s">
+   	<h3>You are logged in as {{ username }}</h3>
+		<form action="{{ request.path }}" method="post">
+			<input class="button session-button" type="submit" value="Logout" />
+		</form>
+	</div>
+</section>
+
+<section class="main-section alabaster">
+   <div class="container wow fadeInUp delay-02s">
+		<pre class="code-header">{{ block.file }}</pre>
+		<pre><code class="language-python">{{ block.code }}</code></pre>
+	</div>
+</section>
+
+{% endblock %}

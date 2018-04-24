@@ -1,0 +1,19 @@
+
+The Vagrantfile sets up port forwarding on port 5000, as this is the port flask uses. 
+Make sure port 5000 is open before executing the 'vagrant up', or the command will fail. 
+If port 5000 is not open, end whatever process is using the port. 
+
+After the vagrant up command completes (it will take a few minutes to install all the
+dependencies), you can access the app from http://192.168.33.10:5000/
+
+We utilized a bootstrap theme for the overall look and feel. 
+
+Home page: exemplifies how Flask apps can easily use tools such as bootstrap.
+Databases page: exemplifies how to use SQL and MongoDB databases with flask.
+Sessions page: exemplifies secure sessions. The user you attempt to sign in as
+               must exist in the SQL database, i.e. you must create the user first.
+Debugger page: is used for showing off the debugger. By default, the app is not
+               running in debug mode. If you want to enable debug mode to view the
+               stacktrace in the browser window, you need to SSH into the vagrant
+               server, execute the command 'export FLASK_DEBUG=1', and then restart
+               the app. 
