@@ -1,0 +1,71 @@
+// -----------------------
+// CMPT 417 Project
+// Kevin Grant - 301192898
+// -----------------------
+
+vocabulary V {
+
+    type Node isa nat
+    type Cost = {0..2000} isa nat   
+
+    start : Node
+    dest(Node)
+    reachable(Node)
+    
+    // the edges in the minimum covering tree
+    treeEdge(Node,Node)
+
+    edge(Node,Node,Cost)
+    edgeCost(Node,Node):Cost
+    
+    total_cost : Cost
+}
+
+theory T : V {
+    
+    // define transitivity of edgecost and cost of no edge 
+    {
+        edgeCost(a,b)=c <- edge(a,b,c).
+        edgeCost(b,a)=c <- edge(a,b,c).
+        edgeCost(a,b)=0 <- ~? c : edge(a,b,c) | edge(b,a,c).
+    }
+    
+    // define reachability of nodes in covering tree recursively
+    {
+        reachable(start).
+        reachable(x) <- reachable(a) & treeEdge(a,x).
+        reachable(x) <- reachable(a) & treeEdge(x,a).
+    }
+
+    // elimate symmetries
+    treeEdge(a,b) => a < b.
+    
+    // edges of covering tree are in original graph
+    treeEdge(a,b) => edgeCost(a,b) > 0.
+
+    // all destinations are reachable
+    ! x : dest(x) => reachable(x).
+
+    // total cost of tree is sum of all edge weights in tree
+    total_cost = sum{a b : treeEdge(a,b) : edgeCost(a,b)}.
+}
+
+structure S : V {
+    edge={4,3,5; 6,2,42; 6,4,14; 6,5,30; 7,3,11; 8,1,36; 8,7,21; 9,1,42; 9,2,43; 9,5,35; 10,1,15; 10,3,43; 10,5,15; 10,7,26}
+    start=8
+    dest={9;2}
+}
+
+term t : V {
+    total_cost
+}
+
+procedure main(){
+    stdoptions.cpsupport = true
+
+    // minimize total cost
+    cost = value(t,minimize(T,S,t)[1])
+    print("min_cost("..cost..").")
+}
+        
+
