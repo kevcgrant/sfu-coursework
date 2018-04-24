@@ -1,0 +1,8 @@
+{"key" :"\u8a3eval1", "key2" : 1231,
+  "list" : [
+    -10, 3, 12.12,32.1e23, 10e-12
+  ],          "item" :{"thing1" :"asd\n\r\"",
+    "thing2" : true,
+    "true" : false
+  }, "null_" : null,   "n":"123"
+            }
