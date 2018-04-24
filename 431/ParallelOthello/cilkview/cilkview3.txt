@@ -1,0 +1,65 @@
+
+Cilkview: Generating scalability data
+Cilkview Scalability Analyzer V2.0.0, Build 4421
+  1 2 3 4 5 6 7 8
+1 X X X X X X O X
+2 X O O X X O X X
+3 X O X X X X X X
+4 X X O X X X X X
+5 X X X O X X X X
+6 X X X X O X X X
+7 X O X O X X X X
+8 X X X X X X X X
+Game over. 
+X has 54 disks. O has 10 disks. X wins!
+Total time: 3855774200ns
+Timer per turn: 116841642ns
+
+Whole Program Statistics
+1) Parallelism Profile
+   Work :					 41,686,058 instructions
+   Span :					 14,781,643 instructions
+   Burdened span :				 16,742,649 instructions
+   Parallelism :				 2.82
+   Burdened parallelism :			 2.49
+   Number of spawns/syncs:			 168
+   Average instructions / strand :		 82,546
+   Strands along span :				 195
+   Average instructions / strand on span :	 75,803
+   Total number of atomic instructions : 	 342
+   Frame count :				 336
+
+2) Speedup Estimate
+     2 processors:	 1.19 - 2.00
+     4 processors:	 1.31 - 2.82
+     8 processors:	 1.38 - 2.82
+    16 processors:	 1.42 - 2.82
+    32 processors:	 1.44 - 2.82
+    64 processors:	 1.45 - 2.82
+   128 processors:	 1.46 - 2.82
+   256 processors:	 1.46 - 2.82
+
+Cilk Parallel Region(s) Statistics - Elapsed time: 0.071 seconds
+1) Parallelism Profile
+   Work :					 35,533,663 instructions
+   Span :					 8,629,248 instructions
+   Burdened span :				 10,590,254 instructions
+   Parallelism :				 4.12
+   Burdened parallelism :			 3.36
+   Number of spawns/syncs:			 168
+   Average instructions / strand :		 70,363
+   Strands along span :				 97
+   Average instructions / strand on span :	 88,961
+   Total number of atomic instructions : 	 342
+   Frame count :				 336
+   Entries to parallel region :			 28
+
+2) Speedup Estimate
+     2 processors:	 1.33 - 2.00
+     4 processors:	 1.59 - 4.00
+     8 processors:	 1.76 - 4.12
+    16 processors:	 1.86 - 4.12
+    32 processors:	 1.92 - 4.12
+    64 processors:	 1.94 - 4.12
+   128 processors:	 1.96 - 4.12
+   256 processors:	 1.97 - 4.12

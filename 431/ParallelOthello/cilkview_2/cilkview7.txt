@@ -1,0 +1,65 @@
+
+Cilkview: Generating scalability data
+Cilkview Scalability Analyzer V2.0.0, Build 4421
+  1 2 3 4 5 6 7 8
+1 X X X X X X X O
+2 X X X O O O X O
+3 X X X X O O X O
+4 X X X O X O X O
+5 X X O O O X X O
+6 X X O X X O X O
+7 O O X O O X O O
+8 O O O O O O O O
+Game over. 
+Tie game. Each player has 32 disks
+Total time: 10852543922ns
+Timer per turn: 350082062ns
+
+Whole Program Statistics
+1) Parallelism Profile
+   Work :					 6,310,773,485 instructions
+   Span :					 1,375,830,047 instructions
+   Burdened span :				 1,377,966,983 instructions
+   Parallelism :				 4.59
+   Burdened parallelism :			 4.58
+   Number of spawns/syncs:			 208
+   Average instructions / strand :		 10,097,237
+   Strands along span :				 215
+   Average instructions / strand on span :	 6,399,209
+   Total number of atomic instructions : 	 398
+   Frame count :				 416
+
+2) Speedup Estimate
+     2 processors:	 1.46 - 2.00
+     4 processors:	 1.89 - 4.00
+     8 processors:	 2.22 - 4.59
+    16 processors:	 2.44 - 4.59
+    32 processors:	 2.56 - 4.59
+    64 processors:	 2.62 - 4.59
+   128 processors:	 2.66 - 4.59
+   256 processors:	 2.68 - 4.59
+
+Cilk Parallel Region(s) Statistics - Elapsed time: 0.060 seconds
+1) Parallelism Profile
+   Work :					 6,304,691,106 instructions
+   Span :					 1,369,747,668 instructions
+   Burdened span :				 1,371,884,604 instructions
+   Parallelism :				 4.60
+   Burdened parallelism :			 4.60
+   Number of spawns/syncs:			 208
+   Average instructions / strand :		 10,087,505
+   Strands along span :				 107
+   Average instructions / strand on span :	 12,801,380
+   Total number of atomic instructions : 	 398
+   Frame count :				 416
+   Entries to parallel region :			 30
+
+2) Speedup Estimate
+     2 processors:	 1.46 - 2.00
+     4 processors:	 1.90 - 4.00
+     8 processors:	 2.23 - 4.60
+    16 processors:	 2.44 - 4.60
+    32 processors:	 2.57 - 4.60
+    64 processors:	 2.63 - 4.60
+   128 processors:	 2.67 - 4.60
+   256 processors:	 2.69 - 4.60

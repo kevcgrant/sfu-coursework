@@ -1,0 +1,345 @@
+DEPTH 1
+
+  1 2 3 4 5 6 7 8
+1 X X X X X X X O
+2 X X X O O X O X
+3 O O O O X O X X
+4 O O O X O X X X
+5 O O O X X O X X
+6 O O O O O X O X
+7 O O X X X O X X
+8 X X X X X X X X
+Game over. 
+X has 38 disks. O has 26 disks. X wins!
+Total time: 474318ns
+Timer per turn: 15301ns
+  1 2 3 4 5 6 7 8
+1 X X X X X X X O
+2 X X X O O X O X
+3 O O O O X O X X
+4 O O O X O X X X
+5 O O O X X O X X
+6 O O O O O X O X
+7 O O X X X O X X
+8 X X X X X X X X
+Game over. 
+X has 38 disks. O has 26 disks. X wins!
+Total time: 514688ns
+Timer per turn: 16603ns
+  1 2 3 4 5 6 7 8
+1 X X X X X X X O
+2 X X X O O X O X
+3 O O O O X O X X
+4 O O O X O X X X
+5 O O O X X O X X
+6 O O O O O X O X
+7 O O X X X O X X
+8 X X X X X X X X
+Game over. 
+X has 38 disks. O has 26 disks. X wins!
+Total time: 515388ns
+Timer per turn: 16625ns
+  1 2 3 4 5 6 7 8
+1 X X X X X X X O
+2 X X X O O X O X
+3 O O O O X O X X
+4 O O O X O X X X
+5 O O O X X O X X
+6 O O O O O X O X
+7 O O X X X O X X
+8 X X X X X X X X
+Game over. 
+X has 38 disks. O has 26 disks. X wins!
+Total time: 473497ns
+Timer per turn: 15274ns
+  1 2 3 4 5 6 7 8
+1 X X X X X X X O
+2 X X X O O X O X
+3 O O O O X O X X
+4 O O O X O X X X
+5 O O O X X O X X
+6 O O O O O X O X
+7 O O X X X O X X
+8 X X X X X X X X
+Game over. 
+X has 38 disks. O has 26 disks. X wins!
+Total time: 473571ns
+Timer per turn: 15276ns
+
+
+DEPTH 2
+
+  1 2 3 4 5 6 7 8
+1 X O O O O O O O
+2 X O O O O X O O
+3 X O O O O O X O
+4 X O O O O O O O
+5 X X O O O X O X
+6 X X O O O O X X
+7 X X X O O O O X
+8 O O O X X X O X
+Game over. 
+X has 22 disks. O has 42 disks. O wins!
+Total time: 9414159ns
+Timer per turn: 294192ns
+  1 2 3 4 5 6 7 8
+1 X O O O O O O O
+2 X O O O O X O O
+3 X O O O O O X O
+4 X O O O O O O O
+5 X X O O O X O X
+6 X X O O O O X X
+7 X X X O O O O X
+8 O O O X X X O X
+Game over. 
+X has 22 disks. O has 42 disks. O wins!
+Total time: 9418852ns
+Timer per turn: 294339ns
+  1 2 3 4 5 6 7 8
+1 X O O O O O O O
+2 X O O O O X O O
+3 X O O O O O X O
+4 X O O O O O O O
+5 X X O O O X O X
+6 X X O O O O X X
+7 X X X O O O O X
+8 O O O X X X O X
+Game over. 
+X has 22 disks. O has 42 disks. O wins!
+Total time: 9420540ns
+Timer per turn: 294392ns
+  1 2 3 4 5 6 7 8
+1 X O O O O O O O
+2 X O O O O X O O
+3 X O O O O O X O
+4 X O O O O O O O
+5 X X O O O X O X
+6 X X O O O O X X
+7 X X X O O O O X
+8 O O O X X X O X
+Game over. 
+X has 22 disks. O has 42 disks. O wins!
+Total time: 9405306ns
+Timer per turn: 293916ns
+  1 2 3 4 5 6 7 8
+1 X O O O O O O O
+2 X O O O O X O O
+3 X O O O O O X O
+4 X O O O O O O O
+5 X X O O O X O X
+6 X X O O O O X X
+7 X X X O O O O X
+8 O O O X X X O X
+Game over. 
+X has 22 disks. O has 42 disks. O wins!
+Total time: 9382860ns
+Timer per turn: 293214ns
+
+
+DEPTH 3
+
+  1 2 3 4 5 6 7 8
+1 X X O X X X X X
+2 O O O X X X X X
+3 O O X O O X X X
+4 O O O X O X O X
+5 X X O X O X O X
+6 X X X X O O X X
+7 X X X X X X O X
+8 X X X X X X X O
+Game over. 
+X has 44 disks. O has 20 disks. X wins!
+Total time: 25137226ns
+Timer per turn: 810878ns
+  1 2 3 4 5 6 7 8
+1 X X O X X X X X
+2 O O O X X X X X
+3 O O X O O X X X
+4 O O O X O X O X
+5 X X O X O X O X
+6 X X X X O O X X
+7 X X X X X X O X
+8 X X X X X X X O
+Game over. 
+X has 44 disks. O has 20 disks. X wins!
+Total time: 25125337ns
+Timer per turn: 810494ns
+  1 2 3 4 5 6 7 8
+1 X X O X X X X X
+2 O O O X X X X X
+3 O O X O O X X X
+4 O O O X O X O X
+5 X X O X O X O X
+6 X X X X O O X X
+7 X X X X X X O X
+8 X X X X X X X O
+Game over. 
+X has 44 disks. O has 20 disks. X wins!
+Total time: 25110385ns
+Timer per turn: 810012ns
+  1 2 3 4 5 6 7 8
+1 X X O X X X X X
+2 O O O X X X X X
+3 O O X O O X X X
+4 O O O X O X O X
+5 X X O X O X O X
+6 X X X X O O X X
+7 X X X X X X O X
+8 X X X X X X X O
+Game over. 
+X has 44 disks. O has 20 disks. X wins!
+Total time: 25077387ns
+Timer per turn: 808948ns
+  1 2 3 4 5 6 7 8
+1 X X O X X X X X
+2 O O O X X X X X
+3 O O X O O X X X
+4 O O O X O X O X
+5 X X O X O X O X
+6 X X X X O O X X
+7 X X X X X X O X
+8 X X X X X X X O
+Game over. 
+X has 44 disks. O has 20 disks. X wins!
+Total time: 25055034ns
+Timer per turn: 808227ns
+
+
+DEPTH 4
+
+  1 2 3 4 5 6 7 8
+1 O O O O O O O O
+2 O O O X O O O O
+3 O O O O O O O O
+4 O O O X O O O O
+5 O O O X X X O O
+6 O X O X O O O O
+7 O X O O X X X O
+8 O O O O O O O O
+Game over. 
+X has 11 disks. O has 53 disks. O wins!
+Total time: 188976905ns
+Timer per turn: 5905528ns
+  1 2 3 4 5 6 7 8
+1 O O O O O O O O
+2 O O O X O O O O
+3 O O O O O O O O
+4 O O O X O O O O
+5 O O O X X X O O
+6 O X O X O O O O
+7 O X O O X X X O
+8 O O O O O O O O
+Game over. 
+X has 11 disks. O has 53 disks. O wins!
+Total time: 188953370ns
+Timer per turn: 5904793ns
+  1 2 3 4 5 6 7 8
+1 O O O O O O O O
+2 O O O X O O O O
+3 O O O O O O O O
+4 O O O X O O O O
+5 O O O X X X O O
+6 O X O X O O O O
+7 O X O O X X X O
+8 O O O O O O O O
+Game over. 
+X has 11 disks. O has 53 disks. O wins!
+Total time: 188918122ns
+Timer per turn: 5903691ns
+  1 2 3 4 5 6 7 8
+1 O O O O O O O O
+2 O O O X O O O O
+3 O O O O O O O O
+4 O O O X O O O O
+5 O O O X X X O O
+6 O X O X O O O O
+7 O X O O X X X O
+8 O O O O O O O O
+Game over. 
+X has 11 disks. O has 53 disks. O wins!
+Total time: 188610799ns
+Timer per turn: 5894087ns
+  1 2 3 4 5 6 7 8
+1 O O O O O O O O
+2 O O O X O O O O
+3 O O O O O O O O
+4 O O O X O O O O
+5 O O O X X X O O
+6 O X O X O O O O
+7 O X O O X X X O
+8 O O O O O O O O
+Game over. 
+X has 11 disks. O has 53 disks. O wins!
+Total time: 189157551ns
+Timer per turn: 5911173ns
+
+
+DEPTH 5
+
+  1 2 3 4 5 6 7 8
+1 X X X X X X X O
+2 O O X X O X O O
+3 O O X X O O X O
+4 O O O X X O X O
+5 O O O O X O X O
+6 O O X O X O X O
+7 O O X X O O O O
+8 O O O O O O O O
+Game over. 
+X has 23 disks. O has 41 disks. O wins!
+Total time: 256754487ns
+Timer per turn: 8023577ns
+  1 2 3 4 5 6 7 8
+1 X X X X X X X O
+2 O O X X O X O O
+3 O O X X O O X O
+4 O O O X X O X O
+5 O O O O X O X O
+6 O O X O X O X O
+7 O O X X O O O O
+8 O O O O O O O O
+Game over. 
+X has 23 disks. O has 41 disks. O wins!
+Total time: 256448598ns
+Timer per turn: 8014018ns
+  1 2 3 4 5 6 7 8
+1 X X X X X X X O
+2 O O X X O X O O
+3 O O X X O O X O
+4 O O O X X O X O
+5 O O O O X O X O
+6 O O X O X O X O
+7 O O X X O O O O
+8 O O O O O O O O
+Game over. 
+X has 23 disks. O has 41 disks. O wins!
+Total time: 256724999ns
+Timer per turn: 8022656ns
+  1 2 3 4 5 6 7 8
+1 X X X X X X X O
+2 O O X X O X O O
+3 O O X X O O X O
+4 O O O X X O X O
+5 O O O O X O X O
+6 O O X O X O X O
+7 O O X X O O O O
+8 O O O O O O O O
+Game over. 
+X has 23 disks. O has 41 disks. O wins!
+Total time: 257956133ns
+Timer per turn: 8061129ns
+  1 2 3 4 5 6 7 8
+1 X X X X X X X O
+2 O O X X O X O O
+3 O O X X O O X O
+4 O O O X X O X O
+5 O O O O X O X O
+6 O O X O X O X O
+7 O O X X O O O O
+8 O O O O O O O O
+Game over. 
+X has 23 disks. O has 41 disks. O wins!
+Total time: 256287442ns
+Timer per turn: 8008983ns
+
+

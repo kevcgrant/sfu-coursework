@@ -1,0 +1,275 @@
+THREADS: 1, DEPTH 1
+Total time: 603228ns
+Timer per turn: 18851ns
+Total time: 657251ns
+Timer per turn: 20539ns
+Total time: 618431ns
+Timer per turn: 19326ns
+Total time: 577939ns
+Timer per turn: 18060ns
+Total time: 573850ns
+Timer per turn: 17933ns
+THREADS: 2, DEPTH 1
+Total time: 836060ns
+Timer per turn: 26127ns
+Total time: 813167ns
+Timer per turn: 25411ns
+Total time: 709793ns
+Timer per turn: 22181ns
+Total time: 687981ns
+Timer per turn: 21499ns
+Total time: 714140ns
+Timer per turn: 22317ns
+THREADS: 4, DEPTH 1
+Total time: 1056104ns
+Timer per turn: 33003ns
+Total time: 1120846ns
+Timer per turn: 35026ns
+Total time: 1092694ns
+Timer per turn: 34146ns
+Total time: 1126154ns
+Timer per turn: 35192ns
+Total time: 1124095ns
+Timer per turn: 35128ns
+THREADS: 8, DEPTH 1
+Total time: 2034060ns
+Timer per turn: 63564ns
+Total time: 2230800ns
+Timer per turn: 69712ns
+Total time: 2014075ns
+Timer per turn: 62940ns
+Total time: 2020814ns
+Timer per turn: 63150ns
+Total time: 1752506ns
+Timer per turn: 54766ns
+THREADS: 16, DEPTH 1
+Total time: 3958991ns
+Timer per turn: 123718ns
+Total time: 13301312ns
+Timer per turn: 415666ns
+Total time: 3092504ns
+Timer per turn: 96640ns
+Total time: 3206342ns
+Timer per turn: 100198ns
+Total time: 3320214ns
+Timer per turn: 103756ns
+THREADS: 1, DEPTH 2
+Total time: 9110389ns
+Timer per turn: 293883ns
+Total time: 9201197ns
+Timer per turn: 296813ns
+Total time: 9114773ns
+Timer per turn: 294025ns
+Total time: 9122779ns
+Timer per turn: 294283ns
+Total time: 9089684ns
+Timer per turn: 293215ns
+THREADS: 2, DEPTH 2
+Total time: 5196427ns
+Timer per turn: 167627ns
+Total time: 5194836ns
+Timer per turn: 167575ns
+Total time: 5279314ns
+Timer per turn: 170300ns
+Total time: 5193452ns
+Timer per turn: 167530ns
+Total time: 5212607ns
+Timer per turn: 168148ns
+THREADS: 4, DEPTH 2
+Total time: 3588900ns
+Timer per turn: 115771ns
+Total time: 3599213ns
+Timer per turn: 116103ns
+Total time: 4495274ns
+Timer per turn: 145009ns
+Total time: 4298060ns
+Timer per turn: 138647ns
+Total time: 4399520ns
+Timer per turn: 141920ns
+THREADS: 8, DEPTH 2
+Total time: 14170651ns
+Timer per turn: 457117ns
+Total time: 4720229ns
+Timer per turn: 152265ns
+Total time: 4085103ns
+Timer per turn: 131777ns
+Total time: 3965122ns
+Timer per turn: 127907ns
+Total time: 4067700ns
+Timer per turn: 131216ns
+THREADS: 16, DEPTH 2
+Total time: 6629434ns
+Timer per turn: 213852ns
+Total time: 6007828ns
+Timer per turn: 193801ns
+Total time: 15339595ns
+Timer per turn: 494825ns
+Total time: 15484478ns
+Timer per turn: 499499ns
+Total time: 5722111ns
+Timer per turn: 184584ns
+THREADS: 1, DEPTH 3
+Total time: 10595949ns
+Timer per turn: 321089ns
+Total time: 10611595ns
+Timer per turn: 321563ns
+Total time: 10568411ns
+Timer per turn: 320255ns
+Total time: 10538291ns
+Timer per turn: 319342ns
+Total time: 10538944ns
+Timer per turn: 319362ns
+THREADS: 2, DEPTH 3
+Total time: 6228653ns
+Timer per turn: 188747ns
+Total time: 6201357ns
+Timer per turn: 187919ns
+Total time: 6267458ns
+Timer per turn: 189923ns
+Total time: 6242103ns
+Timer per turn: 189155ns
+Total time: 6221284ns
+Timer per turn: 188524ns
+THREADS: 4, DEPTH 3
+Total time: 5156791ns
+Timer per turn: 156266ns
+Total time: 5022373ns
+Timer per turn: 152193ns
+Total time: 14252403ns
+Timer per turn: 431891ns
+Total time: 5106978ns
+Timer per turn: 154757ns
+Total time: 5130628ns
+Timer per turn: 155473ns
+THREADS: 8, DEPTH 3
+Total time: 6075478ns
+Timer per turn: 184105ns
+Total time: 15815987ns
+Timer per turn: 479272ns
+Total time: 15075779ns
+Timer per turn: 456842ns
+Total time: 15821081ns
+Timer per turn: 479426ns
+Total time: 4606544ns
+Timer per turn: 139592ns
+THREADS: 16, DEPTH 3
+Total time: 11051801ns
+Timer per turn: 334903ns
+Total time: 7755618ns
+Timer per turn: 235019ns
+Total time: 7380740ns
+Timer per turn: 223659ns
+Total time: 44651750ns
+Timer per turn: 1353083ns
+Total time: 8251887ns
+Timer per turn: 250057ns
+THREADS: 1, DEPTH 4
+Total time: 188759804ns
+Timer per turn: 5898744ns
+Total time: 188535713ns
+Timer per turn: 5891741ns
+Total time: 188878345ns
+Timer per turn: 5902448ns
+Total time: 188801262ns
+Timer per turn: 5900039ns
+Total time: 188657598ns
+Timer per turn: 5895550ns
+THREADS: 2, DEPTH 4
+Total time: 99935655ns
+Timer per turn: 3122989ns
+Total time: 99968453ns
+Timer per turn: 3124014ns
+Total time: 100002291ns
+Timer per turn: 3125071ns
+Total time: 99882692ns
+Timer per turn: 3121334ns
+Total time: 110016345ns
+Timer per turn: 3438011ns
+THREADS: 4, DEPTH 4
+Total time: 76270638ns
+Timer per turn: 2383457ns
+Total time: 77993732ns
+Timer per turn: 2437304ns
+Total time: 58361359ns
+Timer per turn: 1823792ns
+Total time: 77696640ns
+Timer per turn: 2428020ns
+Total time: 69180580ns
+Timer per turn: 2161893ns
+THREADS: 8, DEPTH 4
+Total time: 48060082ns
+Timer per turn: 1501877ns
+Total time: 51209491ns
+Timer per turn: 1600297ns
+Total time: 53723909ns
+Timer per turn: 1678872ns
+Total time: 60549913ns
+Timer per turn: 1892184ns
+Total time: 62076207ns
+Timer per turn: 1939881ns
+THREADS: 16, DEPTH 4
+Total time: 48727511ns
+Timer per turn: 1522734ns
+Total time: 69756139ns
+Timer per turn: 2179879ns
+Total time: 66821472ns
+Timer per turn: 2088171ns
+Total time: 98135045ns
+Timer per turn: 3066720ns
+Total time: 85965660ns
+Timer per turn: 2686426ns
+THREADS: 1, DEPTH 5
+Total time: 185601236ns
+Timer per turn: 5987136ns
+Total time: 185858411ns
+Timer per turn: 5995432ns
+Total time: 185458477ns
+Timer per turn: 5982531ns
+Total time: 186079083ns
+Timer per turn: 6002551ns
+Total time: 186153602ns
+Timer per turn: 6004955ns
+THREADS: 2, DEPTH 5
+Total time: 100625073ns
+Timer per turn: 3245970ns
+Total time: 100656958ns
+Timer per turn: 3246998ns
+Total time: 100639038ns
+Timer per turn: 3246420ns
+Total time: 100888036ns
+Timer per turn: 3254453ns
+Total time: 100895197ns
+Timer per turn: 3254684ns
+THREADS: 4, DEPTH 5
+Total time: 91077362ns
+Timer per turn: 2937979ns
+Total time: 94999767ns
+Timer per turn: 3064509ns
+Total time: 99545276ns
+Timer per turn: 3211138ns
+Total time: 103183270ns
+Timer per turn: 3328492ns
+Total time: 71256237ns
+Timer per turn: 2298588ns
+THREADS: 8, DEPTH 5
+Total time: 160133295ns
+Timer per turn: 5165590ns
+Total time: 100895984ns
+Timer per turn: 3254709ns
+Total time: 150692670ns
+Timer per turn: 4861054ns
+Total time: 112749222ns
+Timer per turn: 3637071ns
+Total time: 91434655ns
+Timer per turn: 2949505ns
+THREADS: 16, DEPTH 5
+Total time: 162802358ns
+Timer per turn: 5251689ns
+Total time: 115992683ns
+Timer per turn: 3741699ns
+Total time: 189061608ns
+Timer per turn: 6098761ns
+Total time: 165842564ns
+Timer per turn: 5349760ns
+Total time: 114892275ns
+Timer per turn: 3706202ns
